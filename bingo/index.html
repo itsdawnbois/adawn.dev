@@ -10,23 +10,25 @@
 
     <style media="screen">
       td {
-        font-size: 100px;
+        font-size: 60px;
         text-align: center;
-      }
-
-      table {
-        width: 600px;
-      }
-
-      th {
-        height: 600px;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        padding: 0.2em;
       }
 
       table,
-      th,
       td {
         border: 1px solid black;
       }
+
+      table {
+        display: inline-flex;
+        padding: 20px;
+      }
+
+
     </style>
   </head>
 
@@ -34,6 +36,10 @@
     <h1>BINGO!</h1>
 
     <table id="bingo_table">
+
+    </table>
+
+    <table id="bingo_table_second">
 
     </table>
   </body>
