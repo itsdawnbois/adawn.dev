@@ -32,23 +32,4 @@ $(function(){
     }
     table.append(line)
   }
-
-  table = $('#bingo_table_second')
-
-  numbers = [...Array(91).keys()].splice(1)
-  selected = [];
-
-  for(var i = 0; i < 25; i++) {
-    shuffleArray(numbers)
-    selected.push(numbers.pop());
-  }
-
-  for(var i = 0; i < 5; i++) {
-    line = $('<tr>')
-    for (var j = 0; j < 5; j ++) {
-      shuffleArray(selected)
-      line.append($('<td>').text(selected.pop()))
-    }
-    table.append(line)
-  }
 });
