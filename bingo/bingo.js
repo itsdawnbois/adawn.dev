@@ -13,7 +13,7 @@ $(function(){
   }
 
 
-  numbers = [...Array(91).keys()].splice(1)
+  numbers = [...Array(76).keys()].splice(1)
   let selected = [];
 
   // Making a grid of numbers
