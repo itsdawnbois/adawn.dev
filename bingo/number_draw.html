@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Roleta de numero do bingo!!!!!!</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    <script src="./number_draw.js" charset="utf-8"></script>
+
+    <style media="screen">
+      td {
+        font-size: 60px;
+        text-align: center;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        padding: 0.2em;
+      }
+
+      #number_drew {
+        font-size: 60px;
+        text-align: center;
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        padding: 0.2em;
+      }
+
+      table,
+      td {
+        border: 1px solid black;
+      }
+
+      table {
+        display: inline-flex;
+        padding: 20px;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <h1>BINGO DA REBASE!</h1>
+
+    <button id="draw_number">Pegar numero</button></br>
+    <span id="number_drew"></span></br>
+
+    <table id="number_draw_table">
+
+    </table>
+  </body>
+
+</html>

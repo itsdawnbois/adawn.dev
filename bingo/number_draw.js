@@ -13,25 +13,26 @@ $(function(){
   }
 
 
-  numbers = [...Array(76).keys()].splice(1)
-  let selected = [];
+  table = $('#number_draw_table')
 
-  // Making a grid of numbers
-  for(var i = 0; i < 25; i++) {
-    shuffleArray(numbers)
-    selected.push(numbers.pop());
-  }
-
-  table = $('#bingo_table')
-
-  for(var i = 0; i < 5; i++) {
+  for(var i = 0; i < 15; i++) {
     line = $('<tr>')
-    for (var j = 0; j < 5; j ++) {
-      shuffleArray(selected)
-      line.append($('<td>').text(selected.pop()))
+    for (var j = 0; j < 5; j++) {
+      line.append($(`<td id="number_${(i + 1) + (15 * j)}">`).text((i + 1) + (15 * j)))
     }
     table.append(line)
   }
+
+  numbers = [...Array(76).keys()].splice(1)
+  console.log(numbers)
+  shuffleArray(numbers)
+
+  $("#draw_number").click(function() {
+    number = numbers.pop()
+    $("#number_drew").text(number)
+    $("#number_" + number).css("backgroundColor", "aqua")
+    console.log(numbers)
+  })
 
   document.querySelectorAll("#bingo_table td").forEach((item) => {
     item.addEventListener("click", function (event) {
@@ -42,4 +43,4 @@ $(function(){
       }
     });
   });
-})();
+});
