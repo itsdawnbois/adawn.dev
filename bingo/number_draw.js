@@ -31,6 +31,8 @@ $(function(){
     number = numbers.pop()
     $("#number_drew").text(number)
     $("#number_" + number).css("backgroundColor", "aqua")
+    histLine = $('<li>').text(number)
+    $('#history').append(histLine)
     console.log(numbers)
   })
 
