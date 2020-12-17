@@ -5,6 +5,10 @@ function shuffleArray(array) {
     }
 }
 
+function goToBoard() {
+  window.location.href = "?secret=" + $('input#fname').val()
+}
+
 $(function(){
   var url = new URL(window.location.href);
   var secret = url.searchParams.get('secret');
@@ -12,9 +16,10 @@ $(function(){
     Math.seedrandom(secret);
   }
 
-
   numbers = [...Array(76).keys()].splice(1)
   let selected = [];
+
+  shuffleArray(numbers); // <- Shuffling a little
 
   // Making a grid of numbers
   for(var i = 0; i < 25; i++) {
@@ -42,4 +47,4 @@ $(function(){
       }
     });
   });
-})();
+});
