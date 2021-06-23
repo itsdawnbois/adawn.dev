@@ -20,6 +20,7 @@ $(function(){
   let selected = [];
 
   shuffleArray(numbers); // <- Shuffling a little
+  shuffleArray(numbers); // <- Shuffling more a little
 
   // Making a grid of numbers
   for(var i = 0; i < 25; i++) {
