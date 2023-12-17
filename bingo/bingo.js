@@ -1,38 +1,48 @@
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
 function goToBoard() {
-  window.location.href = "?secret=" + $('input#fname').val()
+  window.location.href = "?secret=" + $('#secret').val()
 }
 
-$(function(){
+$.expr[':'].textEquals = $.expr.createPseudo(function (arg) {
+  return function (elem) {
+    return $(elem).text().match("^" + arg + "$");
+  };
+});
+
+$(function () {
+  $("#auto_number_selector").on("submit", function (event) {
+    event.preventDefault();
+
+    let number = $('#number');
+    $("td:textEquals('" + number.val() + "')").click();
+    number.val('');
+  });
+
   var url = new URL(window.location.href);
   var secret = url.searchParams.get('secret');
   if (secret) {
     Math.seedrandom(secret);
   }
 
-  numbers = [...Array(76).keys()].splice(1)
-  let selected = [];
+  let numbers = Array.from({ length: 75 }, (_, index) => 1 + index)
 
   shuffleArray(numbers); // <- Shuffling a little
   shuffleArray(numbers); // <- Shuffling more a little
 
   // Making a grid of numbers
-  for(var i = 0; i < 25; i++) {
-    shuffleArray(numbers)
-    selected.push(numbers.pop());
-  }
+  let selected = Array.from({ length: 25 }, () => shuffleArray(numbers) || numbers.pop());
 
   table = $('#bingo_table')
 
-  for(var i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     line = $('<tr>')
-    for (var j = 0; j < 5; j ++) {
+    for (let j = 0; j < 5; j++) {
       shuffleArray(selected)
       line.append($('<td>').text(selected.pop()))
     }
