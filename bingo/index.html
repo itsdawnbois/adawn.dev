@@ -4,8 +4,11 @@
   <head>
     <meta charset="utf-8">
     <title>BINGO!!!!!!</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
     <script src="./bingo.js?version=1.5" charset="utf-8"></script>
 
     <style media="screen">
@@ -28,7 +31,16 @@
         padding: 20px;
       }
 
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
     </style>
   </head>
 
@@ -39,20 +51,26 @@
     <ul>
       <li>Digite o id da sua cartela abaixo e clique em "Ir pra sua cartela"
         para gerar sua cartela</li>
-      <li>Você pode clicar nos números para marca-los</li>
+      <li>Você pode clicar nos números (ou digitar um número na entrada de
+        número) para marcá-los</li>
     </ul>
 
-    <form>
-      <label for="secret">Seu ID:</label>
-      <input type="text" id="secret" name="secret">
-      <input type="submit" value="Ir para sua cartela">
-    </form>
+    <div style="display: flex; flex-flow: row wrap; align-items: center;">
+      <form style="margin-right: 1vw;">
+        <label for="secret">Seu ID:</label>
+        <input type="text" id="secret" name="secret">
+        <input type="submit" value="Ir para sua cartela">
+      </form>
+      <form id="auto_number_selector">
+        <label for="number">Número:</label>
+        <input type="number" id="number" name="number" min="1" max="75">
+        <input type="submit" value="Marcar">
+      </form>
+    </div>
+
     <br><br>
 
-
-    <table id="bingo_table">
-
-    </table>
+    <table id="bingo_table"></table>
   </body>
 
 </html>
